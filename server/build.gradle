@@ -24,6 +24,7 @@ task createWebProject(dependsOn: 'createJavaProject') << {
   webAppDir.mkdirs()
 }
 
+/*使用Jetty插件启动Web服务*/
 jettyRun{  
     webAppSourceDirectory file("$projectDir/src/main/WebRoot")
     httpPort 8080  
