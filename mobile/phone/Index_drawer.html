@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="Index_drawer/css/main.css">
+        <style>
+            .drawer {
+                margin-right: 4em;
+            }
+            .shadow {
+                -webkit-box-shadow: inset -4px 1px 3px rgba(0, 0, 0, .2);
+                box-shadow: inset -4px 1px 3px rgba(0, 0, 0, .2)
+            }
+        </style>
+        </head>
+<body class="um-vp " ontouchstart>
+	<div id="page_0" class="ub ub-fv bc-text-head uhide">
+		<div id="left" class="ub ub-ver ub-fv ub-f1 t-wh ub-img3 res-bodybg drawer shadow">
+			<div id="header" class="uh">
+				<div class="uinn-hcontent ub ub-ac ub-pc">
+					<div class="ub-img res-logo umwh-logo"></div>
+				</div>
+			</div>
+			<div class="border-h"></div>
+			<div id="content" class="ub-f1">
+				<div class="ub ub-ver">
+					<div class="ub">
+						<div class="ub ub-ver ub-f1 list">
+							<div class="ub ub-ver ub-ac ub-pc uinn-icons">
+								<div class="res-home umwh-icons ub-img umar-b"></div>
+								<div class="icontext">首页</div>
+							</div>
+							<div class="border-h"></div>
+						</div>
+						<div class="border-v"></div>
+						<div class="ub ub-ver ub-f1 list">
+							<div class="ub ub-ver ub-ac ub-pc uinn-icons">
+								<div class="res-personalcenter umwh-icons ub-img umar-b"></div>
+								<div class="icontext">个人中心</div>
+							</div>
+							<div class="border-h"></div>
+						</div>
+					</div>
+					<div class="ub">
+						<div class="ub ub-ver ub-f1 list">
+							<div class="ub ub-ver ub-ac ub-pc uinn-icons">
+								<div class="res-search umwh-icons ub-img umar-b"></div>
+								<div class="icontext">搜索</div>
+							</div>
+							<div class="border-h"></div>
+						</div>
+						<div class="border-v"></div>
+						<div class="ub ub-ver ub-f1 list">
+							<div class="ub ub-ver ub-ac ub-pc uinn-icons">
+								<div class="res-more umwh-icons ub-img umar-b"></div>
+								<div class="icontext">更多</div>
+							</div>
+							<div class="border-h"></div>
+						</div>
+					</div>
+				</div>
+				<div class="uinn list">
+					<div class="ub">
+						<div class="ub-f1 uinn-l1"><span class="ulev-1">公司新闻</span></div>
+						<div class="ulev1 t-b ub ub-ac ub-pc">></div>
+					</div>
+				</div>
+				<div class="border-h"></div>
+				<div class="uinn list">
+					<div class="ub">
+						<div class="ub-f1 uinn-l1"><span class="ulev-1">关于我们</span></div>
+						<div class="ulev1 t-b ub ub-ac ub-pc">></div>
+					</div>
+				</div>
+				<div class="border-h"></div>
+				<div class="uinn list">
+					<div class="ub">
+						<div class="ub-f1 uinn-l1"><span class="ulev-1">商务合作</span></div>
+						<div class="ulev1 t-b ub ub-ac ub-pc">></div>
+					</div>
+				</div>
+				<div class="border-h"></div>
+			</div>
+		</div>
+	</div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.window.open("Index", "Index.html", 10, 256);
+            appcan.window.subscribe("main_window_open", function() {
+                setTimeout(function() {
+                    $("#page_0").removeClass("uhide");
+                }, 1000);
+            })
+            appcan.window.subscribe("draw_close", function() {
+                appcan.window.close(-1);
+            });
+        });
+
+        appcan.button(".list", "btn-act", function() {
+            appcan.window.publish("main_window_close", "");
+            setTimeout(function(){
+               appcan.window.close(-1); 
+            },200)
+            
+        })
+</script>
+</html>

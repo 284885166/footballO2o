@@ -1,0 +1,60 @@
+.uinn-hcontent{
+	padding-top:0.8em;
+	padding-bottom:0.6em;
+}
+.res-logo{
+	background-image:url(images/logo.png);
+}
+.res-home{
+	background-image:url(images/home.png);
+}
+.res-personalcenter{
+	background-image:url(images/personalcenter.png);
+}
+.res-search{
+	background-image:url(images/search.png);
+}
+.res-more{
+	background-image:url(images/more.png);
+}
+.umwh-icons{
+	min-height:2.125em;
+	min-width:2.125em;
+}
+.uinn-icons{
+	padding:2.5em 0;
+}
+.umwh-logo{
+	min-height:1.5em;
+	min-width:4.5em;
+}
+.res-bodybg{
+	background-image:url(images/bodybg.png);
+}
+.border-h{
+	height:1px;
+	border-top:1px solid #000;
+	background-color:#292929;
+	border-bottom:1px solid #3c3c3c;
+}
+.border-v{
+	width:1px;
+	border-left:1px solid #000;
+	background-color:#292929;
+	border-right:1px solid #3c3c3c;
+}
+.t-a4a{
+	color:#a4a4a4;
+}
+.icontext{
+	text-overflow:ellipsis;
+	width:4em;
+	text-align:center;
+	overflow:hidden;
+}
+.t-b{
+	font-weight:bold;
+}
+.uinn-l1{
+	padding-left:0.5em;
+}
