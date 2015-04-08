@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ftballo2o">
+        <wb-resource deploy-path="/" source-path="/root" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/frameworkapp/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/framework/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/platform/src"/>
+        <property name="context-root" value="ftballo2o"/>
+        <property name="java-output-path" value="/ftballo2o/build/classes"/>
+    </wb-module>
+</project-modules>

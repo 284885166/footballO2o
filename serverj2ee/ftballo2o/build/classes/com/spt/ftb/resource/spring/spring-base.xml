@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+       ">
+
+	<!-- 扫描注解Bean -->
+	<bean id="springUtils" class="com.spt.ftb.framework.util.SpringContextUtils" />
+	<context:component-scan base-package="com.spt.ftb.service">
+	</context:component-scan>
+	<context:component-scan base-package="com.spt.ftb.data"></context:component-scan>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:com/spt/ftb/resource/hibernate/jdbc.properties
+				</value>
+				<value>classpath*:com/spt/ftb/resource/hibernate/hibernate.properties
+				</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 国际化的消息资源文件 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<!-- 在web环境中一定要定位到classpath 否则默认到当前web应用下找 -->
+				<value>classpath:com/spt/ftb/resource/message/messages</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="cacheSeconds" value="60" />
+	</bean>
+
+	<!-- 将日志 bean 和业务 bean 通过代理的方式进行代理整合 -->
+	<bean id="ispbeforelogadvice" class="com.spt.ftb.framework.common.log.IspMethodBeforeAdvice" />
+	<aop:config proxy-target-class="true" />
+	<aop:config>
+		<aop:aspect id="ispAspect" ref="ispbeforelogadvice">
+			<aop:pointcut
+				expression="(execution(* com.spt.ftb..*.del*(*))) or (execution(* com.spt.ftb..*.update*(*))) or (execution(* com.spt.ftb..*.add*(*))) or (execution(* com.spt.ftb..*.create*(*))) or (execution(* com.spt.ftb..*.insert*(*))) or (execution(* com.spt.ftb..*.remove*(*)))"
+				id="ispLogPointcut" />
+			<aop:before method="logBefore" pointcut-ref="ispLogPointcut" />
+		</aop:aspect>
+	</aop:config>
+
+	<import resource="classpath*:com/spt/ftb/resource/spring/spring-dao.xml" />
+
+</beans>
