@@ -32,7 +32,7 @@ public abstract class AbstractBaseController<PO,VO>
 	 * @param @param message
 	 * @param @return    设定文件 
 	 * @return String 返回类型 
-	 * @throws com.spt.ftb.web.AbstractBaseController
+	 * @throws AbstractBaseController
 	 */
 	protected String getMessage(String message)
 	{

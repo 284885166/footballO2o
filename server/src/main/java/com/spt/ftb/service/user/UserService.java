@@ -12,7 +12,7 @@ import com.spt.ftb.framework.app.web.page.Page;
  */
 public interface UserService<PO, VO> extends IService<PO, VO>
 {
-	public Page<VO> queryDatasByWhere(String name, String account, int state, int pageSize, int curpage, int org_id);
+	public Page<VO> queryDatasByWhere(String name,String account,int state,int pageSize,int curpage,int org_id);
 	
 	public VO getUserByName(String name);
 }
